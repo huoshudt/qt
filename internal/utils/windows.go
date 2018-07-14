@@ -8,7 +8,11 @@ import (
 )
 
 func QT_MSYS2() bool {
-	return (os.Getenv("QT_MSYS2") == "true" || IsMsys2QtDir() || MSYSTEM() != "") && !MSYS_DOCKER()
+	//build with msys2 and use qtdeploy normal,you can not use qtdeploy when you install docker later.
+	//bug is here,  installed, not used.
+	//now i only fixed like this, is not good.
+	//return (os.Getenv("QT_MSYS2") == "true" || IsMsys2QtDir() || MSYSTEM() != "") && !MSYS_DOCKER()
+	return (os.Getenv("QT_MSYS2") == "true" || IsMsys2QtDir() || MSYSTEM() != "")
 }
 
 func QT_MSYS2_DIR() string {
